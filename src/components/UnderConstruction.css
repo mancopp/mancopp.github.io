@@ -1,0 +1,33 @@
+.under-construction {
+  position: relative;
+  z-index: 10;
+  .stripe-border-top {
+    width: 200vw;
+    max-width: 1330px;
+    transform: rotate(15deg) translate(110px, 20px);
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+  .stripe-border-bot {
+    width: 200vw;
+    max-width: 1330px;
+    transform: rotate(-18deg) translate(-100px, -150px);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    @media (min-width: 1000px) {
+      transform: rotate(75deg) translate(-200px, 500px);
+    }
+  }
+  .construction-sign {
+    transform: translateX(-50%);
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    height: 400px;
+    max-height: 30vh;
+    margin-block-end: 20px;
+  }
+}
