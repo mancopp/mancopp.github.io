@@ -1,5 +1,5 @@
 import { ReactTyped } from "react-typed";
-import "./Specimen.css";
+import "./Specimen.scss";
 
 export const Specimen = () => {
   return (

@@ -1,4 +1,4 @@
-import "./UnderConstruction.css";
+import "./UnderConstruction.scss";
 
 export const UnderConstruction = () => {
   return (
