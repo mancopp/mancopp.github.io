@@ -1,4 +1,5 @@
 .commits-graph {
+  position: relative;
   background-color: rgba(0, 0, 0, 0.127);
   max-width: 1280px;
   margin: auto;
@@ -7,45 +8,12 @@
   flex-direction: column;
   gap: 40px;
 
-  .commit-card {
-    position: relative;
-    height: 400px;
-    width: 70%;
-    background-color: skyblue;
-    margin: 0;
-    transition: all 0.5s ease-in-out;
-
-    &::before {
-      content: "";
-      box-sizing: border-box;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      border-bottom-left-radius: 20px;
-      border-bottom: 10px solid skyblue;
-      border-left: 10px solid skyblue;
-      width: 20%;
-      height: 100%;
-      transform: translateX(calc(100% + 50px));
-    }
-
-    &::after {
-      content: "";
-      box-sizing: border-box;
-      position: absolute;
-      top: 0;
-      right: 0;
-      background-color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 100%;
-      border: 10px solid skyblue;
-      transform: translateX(calc(100% + 25px));
-    }
-
-    &.highlight {
-      background-color: red;
-      // width: 80%;
-    }
+  div[class*="branch-line-"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    border-left: 10px solid skyblue;
   }
 }

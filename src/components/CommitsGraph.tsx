@@ -2,6 +2,17 @@ import { useEffect } from "react";
 import { CommitCard } from "./CommitCard";
 import "./CommitsGraph.scss";
 
+enum Branches {
+  UNIVERSITY = "UNI",
+  JOB = "JOB",
+  PERSONAL = "PER",
+}
+
+export type Commit = {
+  title: string;
+  branch: Branches;
+};
+
 export const CommitsGraph = () => {
   useEffect(() => {
     const getElementsInArea = () => {
@@ -32,23 +43,43 @@ export const CommitsGraph = () => {
     getElementsInArea();
   }, []);
 
+  const commits: Commit[] = [
+    {
+      title: "Uni blah",
+      branch: Branches.UNIVERSITY,
+    },
+    {
+      title: "Uni blah blah",
+      branch: Branches.UNIVERSITY,
+    },
+    {
+      title: "Job blah",
+      branch: Branches.JOB,
+    },
+    {
+      title: "Uni blah blah blah",
+      branch: Branches.UNIVERSITY,
+    },
+    {
+      title: "Personal blah",
+      branch: Branches.PERSONAL,
+    },
+  ];
+
   return (
     <div className="commits-graph">
       <h1>Commits graph</h1>
-      <CommitCard />
-      <CommitCard />
-      <CommitCard />
-      <CommitCard />
-      <CommitCard />
-      <CommitCard />
-      <CommitCard />
-      <CommitCard />
-      <CommitCard />
-      <CommitCard />
-      <CommitCard />
-      <CommitCard />
-      <CommitCard />
-      <CommitCard />
+      {commits.map((commit, index) => (
+        <CommitCard
+          key={index}
+          commit={commit}
+          isNextCommitSameBranch={
+            index < commits.length - 1 &&
+            commits[index + 1].branch === commit.branch
+          }
+        />
+      ))}
+      <div className="branch-line-uni"></div>
     </div>
   );
 };
