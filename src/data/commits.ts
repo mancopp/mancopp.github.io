@@ -10,8 +10,16 @@ export interface Commit {
 
 export const commits: Commit[] = [
   {
+    title: "MANCOPP",
+    subtitle: "APR 2024 - PRESENT",
+    description:
+      "Adventure game I am working on while building framework based on Godot 4. Creating architecture that allows future users not to worry about handling complex state which is often present in games of point-and-click adventure genre. During this project I have learned a lot about caching and general lower level optimization.",
+    imageFileName: "blue-venom-cover.jpeg",
+    branch: branches[2],
+  },
+  {
     title: "PROJECT FLOW",
-    subtitle: "MAR 2023 - PRESENT",
+    subtitle: "MAR 2024 - PRESENT",
     description:
       "Adventure game I am working on while building framework based on Godot 4. Creating architecture that allows future users not to worry about handling complex state which is often present in games of point-and-click adventure genre. During this project I have learned a lot about caching and general lower level optimization.",
     imageFileName: "blue-venom-cover.jpeg",
@@ -19,7 +27,7 @@ export const commits: Commit[] = [
   },
   {
     title: "EMETH ABSTRACT",
-    subtitle: "MAR 2023 - PRESENT",
+    subtitle: "MAR 2024 - PRESENT",
     description:
       "Adventure game I am working on while building framework based on Godot 4. Creating architecture that allows future users not to worry about handling complex state which is often present in games of point-and-click adventure genre. During this project I have learned a lot about caching and general lower level optimization.",
     imageFileName: "blue-venom-cover.jpeg",
