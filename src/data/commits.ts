@@ -38,7 +38,7 @@ export const commits: Commit[] = [
     subtitle: "SEP 2023 - APR 2024",
     description:
       "Adventure game I am working on while building framework based on Godot 4. Creating architecture that allows future users not to worry about handling complex state which is often present in games of point-and-click adventure genre. During this project I have learned a lot about caching and general lower level optimization.",
-    imageFileName: "smartbees.svg",
+    imageFileName: "job.svg",
     branch: branches[1],
   },
   {
@@ -70,7 +70,7 @@ export const commits: Commit[] = [
     subtitle: "FEB 2023 - MAR 2023",
     description:
       "Adventure game I am working on while building framework based on Godot 4. Creating architecture that allows future users not to worry about handling complex state which is often present in games of point-and-click adventure genre. During this project I have learned a lot about caching and general lower level optimization.",
-    imageFileName: "blue-venom-cover.jpeg",
+    imageFileName: "job.svg",
     branch: branches[1],
   },
   {
@@ -86,7 +86,7 @@ export const commits: Commit[] = [
     subtitle: "JUN 2021 - MAY 2022",
     description:
       "Adventure game I am working on while building framework based on Godot 4. Creating architecture that allows future users not to worry about handling complex state which is often present in games of point-and-click adventure genre. During this project I have learned a lot about caching and general lower level optimization.",
-    imageFileName: "ecocity.svg",
+    imageFileName: "job.svg",
     branch: branches[1],
   },
   {
