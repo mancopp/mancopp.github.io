@@ -1,4 +1,4 @@
-import { Commit } from "./CommitsGraph";
+import { Commit } from "../data/commits";
 import "./CommitCard.scss";
 
 export const CommitCard = (props: {
@@ -8,7 +8,7 @@ export const CommitCard = (props: {
   const commit = props.commit;
   const overrideStyles = {
     "--color-primary": commit.branch.color,
-    "--branch-offset-width": `${commit.branch.order * 30}px`,
+    "--branch-offset-width": `${(commit.branch.order ?? 1) * 30}px`,
   } as React.CSSProperties;
   return (
     <div className={"commit-card"} style={overrideStyles}>

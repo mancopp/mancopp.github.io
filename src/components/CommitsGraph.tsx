@@ -2,19 +2,8 @@ import { useEffect } from "react";
 import { CommitCard } from "./CommitCard";
 import "./CommitsGraph.scss";
 
-type Branch = {
-  name: string;
-  color: string;
-  order: number;
-  lastCommitId?: number;
-};
-
-export type Commit = {
-  title: string;
-  subtitle?: string;
-  description?: string;
-  branch: Branch;
-};
+import { commits } from "../data/commits";
+import { Branch, branches } from "../data/branches";
 
 export const CommitsGraph = () => {
   useEffect(() => {
@@ -46,53 +35,17 @@ export const CommitsGraph = () => {
     getElementsInArea();
   }, []);
 
-  const branches: Branch[] = [
-    {
-      name: "university",
-      color: "#449DD1",
-      order: 3,
-    },
-    {
-      name: "job",
-      color: "#D1603D",
-      order: 2,
-    },
-    {
-      name: "personal",
-      color: "#EEC643",
-      order: 1,
-    },
-  ];
-
-  const commits: Commit[] = [
-    {
-      title: "PROJECT FLOW",
-      subtitle: "Sep 2023 - Present",
-      description:
-        "Adventure game I am working on while building framework based on Godot 4. Creating architecture that allows future users not to worry about handling complex state which is often present in games of point-and-click adventure genre. During this project I have learned a lot about caching and general lower level optimization.",
-      branch: branches[0],
-    },
-    {
-      title: "Uni blah blah",
-      branch: branches[0],
-    },
-    {
-      title: "Job blah",
-      branch: branches[1],
-    },
-    {
-      title: "Uni blah blah blah",
-      branch: branches[0],
-    },
-    {
-      title: "Personal blah",
-      branch: branches[2],
-    },
-  ];
-
+  // Assign lastCommitId to branches
   commits.forEach((commit, index) => {
-    const b = commit.branch;
-    b.lastCommitId = index;
+    commit.branch.lastCommitId = index;
+  });
+
+  // Sort branches by lastCommitId in ascending order
+  branches.sort((a, b) => (b.lastCommitId ?? 0) - (a.lastCommitId ?? 0));
+
+  // Assign order to branches based on lastCommitId starting from 1
+  branches.forEach((branch, index) => {
+    branch.order = index + 1;
   });
 
   return (
@@ -108,11 +61,9 @@ export const CommitsGraph = () => {
           }
         />
       ))}
-      {branches
-        .sort((a, b) => b.lastCommitId - a.lastCommitId)
-        .map((branch, index) => (
-          <BranchLine key={index} branch={branch} />
-        ))}
+      {branches.map((branch, index) => (
+        <BranchLine key={index} branch={branch} />
+      ))}
     </div>
   );
 };
@@ -128,7 +79,7 @@ const BranchLine = (props: { branch: Branch }) => {
   const style = {
     borderLeft: `10px solid ${props.branch.color}`,
     borderBottom: `10px solid ${props.branch.color}`,
-    width: `${props.branch.order * 30}px`,
+    width: `${(props.branch.order ?? 1) * 30}px`,
     height:
       props.branch.lastCommitId &&
       ` ${calculateBranchHeight(props.branch.lastCommitId, 400, 40, 100)}px`,
