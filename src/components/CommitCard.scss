@@ -1,6 +1,5 @@
 :root {
   --color-primary: black;
-  --stripe-width: 10px;
   --branch-offset-width: 0px;
 }
 
@@ -11,41 +10,64 @@
   height: 400px;
 
   &__rect {
+    position: relative;
     width: 80%;
     flex-shrink: 0;
-    // flex: 80%;
     border-radius: 30px;
-    background-color: var(--color-primary);
+    background-color: rgb(from var(--color-primary) r g b / 50%);
+    border: 2px solid var(--color-primary);
     padding: 30px;
+    overflow: hidden;
+    box-shadow: 0px 0 31px 0px rgb(0 0 0 / 10%);
+    backdrop-filter: blur(15px);
 
     display: flex;
     justify-content: center;
     align-items: start;
 
+    &::before {
+      content: "";
+      background: rgba(white, 0.2);
+      width: 30%;
+      height: 100%;
+      top: 0%;
+      left: -40%;
+      transform: skew(-20deg);
+      position: absolute;
+      transition: left 500ms ease-out;
+    }
+
+    &:hover::before {
+      left: 110%;
+    }
+
     .content {
       flex: 60%;
       margin-inline-end: 36px;
+      text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 
       .title {
         font-size: 2.5rem;
         line-height: 100%;
         font-weight: 700;
-        margin-block-end: 10px;
+        margin-block-end: 6px;
       }
       .subtitle {
         font-size: 1.5rem;
         line-height: 100%;
         font-family: "JetBrains Mono", monospace;
-        margin-block-end: 28px;
+        margin-block-end: 12px;
       }
       .description {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         font-weight: 500;
       }
     }
     .image {
-      flex: 40%;
+      position: relative;
       background-color: black;
+      border: 2px solid var(--color-primary);
+      border-radius: 10px;
       height: 100%;
     }
   }
@@ -88,6 +110,9 @@
   }
 
   &.highlight {
+    // .commit-card__rect::before {
+    //   left: 110%;
+    // }
     // background-color: red;
     // width: 80%;
   }

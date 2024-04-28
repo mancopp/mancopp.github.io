@@ -1,6 +1,5 @@
 .commits-graph {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.127);
   max-width: 1280px;
   margin: auto;
   padding-block-end: 200px;
@@ -9,11 +8,26 @@
   flex-direction: column;
   gap: 40px;
 
-  div[class*="branch-line-"] {
+  .branch-line {
+    --branch-color: white;
     position: absolute;
     top: 0;
     right: 0;
     height: 100%;
     border-bottom-left-radius: 40px;
+    border-left: var(--stripe-width) solid var(--branch-color);
+    border-bottom: var(--stripe-width) solid var(--branch-color);
+
+    &::after {
+      content: "";
+      background-color: var(--branch-color);
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-radius: 100%;
+      bottom: 0;
+      right: 0;
+      transform: translate(90%, 75%);
+    }
   }
 }

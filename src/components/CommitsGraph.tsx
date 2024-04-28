@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { CommitCard } from "./CommitCard";
 import "./CommitsGraph.scss";
 
@@ -6,34 +5,34 @@ import { commits } from "../data/commits";
 import { Branch, branches } from "../data/branches";
 
 export const CommitsGraph = () => {
-  useEffect(() => {
-    const getElementsInArea = () => {
-      const viewportHeight = document.documentElement.clientHeight;
+  // useEffect(() => {
+  //   const getElementsInArea = () => {
+  //     const viewportHeight = document.documentElement.clientHeight;
 
-      const handleScroll = () => {
-        const elements = document.querySelectorAll(".commit-card");
-        elements.forEach((elm) => {
-          const pos = elm.getBoundingClientRect();
-          const topPerc = (pos.top / viewportHeight) * 100;
-          const bottomPerc = (pos.bottom / viewportHeight) * 100;
-          const middle = (topPerc + bottomPerc) / 2;
-          const inViewport = middle > 40 && middle < 60;
+  //     const handleScroll = () => {
+  //       const elements = document.querySelectorAll(".commit-card");
+  //       elements.forEach((elm) => {
+  //         const pos = elm.getBoundingClientRect();
+  //         const topPerc = (pos.top / viewportHeight) * 100;
+  //         const bottomPerc = (pos.bottom / viewportHeight) * 100;
+  //         const middle = (topPerc + bottomPerc) / 2;
+  //         const inViewport = middle > 40 && middle < 60;
 
-          elm.classList.toggle("highlight", inViewport);
-        });
-      };
+  //         elm.classList.toggle("highlight", inViewport);
+  //       });
+  //     };
 
-      window.addEventListener("scroll", handleScroll);
-      window.addEventListener("resize", handleScroll);
+  //     window.addEventListener("scroll", handleScroll);
+  //     window.addEventListener("resize", handleScroll);
 
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-        window.removeEventListener("resize", handleScroll);
-      };
-    };
+  //     return () => {
+  //       window.removeEventListener("scroll", handleScroll);
+  //       window.removeEventListener("resize", handleScroll);
+  //     };
+  //   };
 
-    getElementsInArea();
-  }, []);
+  //   getElementsInArea();
+  // }, []);
 
   // Assign lastCommitId to branches
   commits.forEach((commit, index) => {
@@ -77,8 +76,7 @@ const BranchLine = (props: { branch: Branch }) => {
   ) => (lastCommitId + 1) * (commitHeight + gap) + 150 + offsetTop;
 
   const style = {
-    borderLeft: `10px solid ${props.branch.color}`,
-    borderBottom: `10px solid ${props.branch.color}`,
+    "--branch-color": `${props.branch.color}`,
     width: `${(props.branch.order ?? 1) * 30}px`,
     height:
       props.branch.lastCommitId &&
@@ -86,6 +84,9 @@ const BranchLine = (props: { branch: Branch }) => {
   } as React.CSSProperties;
 
   return (
-    <div className={`branch-line-${props.branch.name}`} style={style}></div>
+    <div
+      className={`branch-line branch-line-${props.branch.name}`}
+      style={style}
+    ></div>
   );
 };

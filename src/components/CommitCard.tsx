@@ -18,7 +18,11 @@ export const CommitCard = (props: {
           <p className="subtitle">{commit.subtitle}</p>
           <p className="description">{commit.description}</p>
         </div>
-        <div className="image"></div>
+        <img
+          className="image"
+          src={`/commits/${commit.imageFileName}`}
+          alt={`${commit.title} cover image`}
+        />
       </div>
       <div
         className={`commit-card__stripe ${
