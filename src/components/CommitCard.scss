@@ -117,7 +117,6 @@
     border-bottom-left-radius: 40px;
     border-bottom: var(--stripe-width) solid var(--color-primary);
     border-left: var(--stripe-width) solid var(--color-primary);
-    // margin-inline-end: 50px;
     margin-block-start: 20px;
     margin-block-end: 30px;
     margin-inline-start: 50px;
@@ -140,13 +139,5 @@
       border: var(--stripe-width) solid var(--color-primary);
       transform: translate(calc(-50% - var(--stripe-width) / 2), -5px);
     }
-  }
-
-  &.highlight {
-    // .commit-card__rect::before {
-    //   left: 110%;
-    // }
-    // background-color: red;
-    // width: 80%;
   }
 }
