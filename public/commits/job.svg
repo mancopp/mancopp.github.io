@@ -1,16 +1,19 @@
 <svg width="336" height="336" viewBox="0 0 336 336" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="336" height="336" fill="#2E2E2E"/>
-<rect x="128" y="97" width="80" height="49" rx="10" fill="#371A1A"/>
-<rect x="134" y="103" width="68" height="49" rx="5" fill="#5B4338"/>
-<rect x="134" y="113" width="68" height="39" rx="5" fill="#C34848"/>
-<rect x="77" y="120" width="183" height="118" rx="10" fill="#371A1A"/>
-<path d="M83 132C83 128.686 85.6863 126 89 126H248C251.314 126 254 128.686 254 132V176H83V132Z" fill="#5B4338"/>
-<path d="M83 142C83 138.686 85.6863 136 89 136H239C242.314 136 245 138.686 245 142V176H83V142Z" fill="#C34848"/>
-<path d="M83 182H254V226C254 229.314 251.314 232 248 232H89C85.6863 232 83 229.314 83 226V182Z" fill="#5B4338"/>
-<path d="M83 182H245V226C245 229.314 242.314 232 239 232H89C85.6863 232 83 229.314 83 226V182Z" fill="#C34848"/>
-<rect x="148" y="164" width="40" height="30" rx="5" fill="#371A1A"/>
-<rect x="154" y="169" width="28" height="20" rx="2" fill="#C69783"/>
-<rect x="154" y="169" width="28" height="20" rx="2" fill="#9C8074"/>
-<rect x="154" y="175" width="28" height="14" rx="2" fill="#C69783"/>
-<rect x="154" y="175" width="28" height="14" rx="2" fill="#D1AC9D"/>
+<g filter="url(#filter0_d_247_114)">
+<path d="M121.2 205.72L66 180.76V163.6L121.2 138.52V154.84L88.08 169.36C86.48 170.08 84.8 170.68 83.04 171.16C81.28 171.64 79.88 171.96 78.84 172.12C79.88 172.28 81.28 172.6 83.04 173.08C84.8 173.48 86.48 174.04 88.08 174.76L121.2 189.28V205.72Z" fill="white"/>
+<path d="M137.906 224.8L179.306 112H197.906L156.506 224.8H137.906Z" fill="white"/>
+<path d="M214.612 205.72V189.4L247.732 174.88C249.332 174.16 251.012 173.56 252.772 173.08C254.532 172.6 255.933 172.28 256.973 172.12C255.933 171.96 254.532 171.68 252.772 171.28C251.012 170.8 249.332 170.2 247.732 169.48L214.612 154.96V138.52L269.812 163.48V180.64L214.612 205.72Z" fill="white"/>
+</g>
+<defs>
+<filter id="filter0_d_247_114" x="66" y="112" width="203.812" height="118.8" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="6"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_247_114"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_247_114" result="shape"/>
+</filter>
+</defs>
 </svg>
