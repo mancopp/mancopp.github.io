@@ -13,7 +13,7 @@ export const commits: Commit[] = [
     title: "MANCOPP",
     subtitle: "APR 2024 - PRESENT",
     description:
-      "Personal static portfolio website, hosted with help of GitHub Pages. In fact, you are looking at it right now. Wonderful, isn't it?",
+      "Personal static portfolio website, hosted with the help of GitHub Pages. Built with React.js, in fact, you are looking at it right now. Wonderful, isn't it? :D",
     imageFileName: "mancopp-com.png",
     branch: branches[2],
   },
