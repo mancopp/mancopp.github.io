@@ -84,12 +84,16 @@
   flex-direction: column;
   gap: 40px;
 
+  @media (max-width: 1280px) {
+    padding-inline-start: 30px;
+  }
+
   @media (max-width: 900px) {
     padding-inline-start: 20px;
   }
 
-  @media (max-width: 1280px) {
-    padding-inline-start: 30px;
+  @media (max-width: 550px) {
+    padding-inline-start: 10px;
   }
 
   .branch-line {
