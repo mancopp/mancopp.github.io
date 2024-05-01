@@ -1,4 +1,6 @@
 import { ReactTyped } from "react-typed";
+import Lottie from "lottie-react";
+import animationData from "../lotties/scroll-tip.json";
 import "./Specimen.scss";
 
 export const Specimen = () => {
@@ -24,6 +26,7 @@ export const Specimen = () => {
           <span>`</span>
         </span>
       </div>
+      <Lottie className="scroll-tip" animationData={animationData} />
     </div>
   );
 };
