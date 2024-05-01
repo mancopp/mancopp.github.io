@@ -46,8 +46,20 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 2.2rem;
+
+  @media (min-width: 900px) {
+    font-size: 3.2em;
+    line-height: 1.1;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+
+  @media (min-width: 900px) {
+    font-size: 3rem;
+  }
 }
 
 button {
@@ -72,7 +84,7 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #fafaff;
   }
   a:hover {
     color: #747bff;

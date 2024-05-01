@@ -1,7 +1,83 @@
+.commits-graph-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 15px;
+
+  background-color: #242424d9;
+  backdrop-filter: blur(10px);
+  border-bottom: 5px solid #6c7280;
+  box-shadow: 0px 2px 12px 0px rgb(0 0 0 / 30%);
+
+  .filter-branches-dropodwn {
+    display: inline-block;
+    color: #fafaff;
+    background-color: #6c7280;
+    border-radius: 8px;
+    position: relative;
+
+    .btn-content {
+      padding: 10px;
+
+      gap: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 1rem;
+      font-weight: 500;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .checkbox-dropdown-list {
+      list-style: none;
+      margin: 0;
+      padding: 4px;
+      position: absolute;
+      top: 110%;
+      background-color: #525660;
+      border-radius: inherit;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      text-transform: capitalize;
+
+      pointer-events: none;
+
+      li {
+        label {
+          display: inline-block;
+          width: 100%;
+          padding: 8px;
+          border-radius: 5px;
+
+          &:hover {
+            cursor: pointer;
+            background-color: #0000002c;
+          }
+        }
+
+        input {
+          margin-inline-end: 8px;
+        }
+      }
+
+      &.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+}
+
 .commits-graph {
   position: relative;
   max-width: 1280px;
   margin: auto;
+  padding-block-start: 24px;
   padding-block-end: 200px;
 
   display: flex;

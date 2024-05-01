@@ -3,35 +3,76 @@ import "./CommitsGraph.scss";
 
 import { commits } from "../data/commits";
 import { Branch, branches } from "../data/branches";
+import { useState } from "react";
 
 export const CommitsGraph = () => {
-  commits.forEach((commit, index) => {
+  const [selectedBranches, setSelectedBranches] = useState(
+    branches.map((branch) => branch.name)
+  );
+
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = event.target;
+    const remainingBranches = selectedBranches.filter(
+      (branch) => branch !== value
+    );
+
+    if (!checked && remainingBranches.length === 0) {
+      return;
+    }
+
+    if (checked) {
+      setSelectedBranches((prevSelected) => [...prevSelected, value]);
+    } else {
+      setSelectedBranches((prevSelected) =>
+        prevSelected.filter((branch) => branch !== value)
+      );
+    }
+  };
+
+  const filteredCommits = commits.filter((commit) =>
+    selectedBranches.includes(commit.branch.name)
+  );
+
+  filteredCommits.forEach((commit, index) => {
     commit.branch.lastCommitId = index;
   });
 
-  branches.sort((a, b) => (b.lastCommitId ?? 0) - (a.lastCommitId ?? 0));
+  const filteredBranches = branches.filter((branch) =>
+    selectedBranches.includes(branch.name)
+  );
 
-  branches.forEach((branch, index) => {
+  filteredBranches.sort(
+    (a, b) => (b.lastCommitId ?? 0) - (a.lastCommitId ?? 0)
+  );
+
+  filteredBranches.forEach((branch, index) => {
     branch.order = index + 1;
   });
 
   return (
-    <div className="commits-graph">
-      <h1>Commits graph</h1>
-      {commits.map((commit, index) => (
-        <CommitCard
-          key={index}
-          commit={commit}
-          isNextCommitSameBranch={
-            index < commits.length - 1 &&
-            commits[index + 1].branch === commit.branch
-          }
-        />
-      ))}
-      {branches.map((branch, index) => (
-        <BranchLine key={index} branch={branch} />
-      ))}
-    </div>
+    <>
+      <Header
+        branches={branches}
+        filteredBranches={filteredBranches}
+        handleCheckboxChange={handleCheckboxChange}
+      />
+      <div className="commits-graph">
+        <h2>Mancopp: Commit Graph</h2>
+        {filteredCommits.map((commit, index) => (
+          <CommitCard
+            key={index}
+            commit={commit}
+            isNextCommitSameBranch={
+              index < filteredCommits.length - 1 &&
+              filteredCommits[index + 1].branch === commit.branch
+            }
+          />
+        ))}
+        {filteredBranches.map((branch, index) => (
+          <BranchLine key={index} branch={branch} />
+        ))}
+      </div>
+    </>
   );
 };
 
@@ -56,5 +97,44 @@ const BranchLine = (props: { branch: Branch }) => {
       className={`branch-line branch-line-${props.branch.name}`}
       style={style}
     ></div>
+  );
+};
+
+// TODO: Hide when leaving commits-graph
+const Header = (props: {
+  branches: Branch[];
+  filteredBranches: Branch[];
+  handleCheckboxChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}) => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  return (
+    <div className="commits-graph-header">
+      <div className="filter-branches-dropodwn">
+        <div
+          className="btn-content"
+          onClick={() => setDropdownOpen((state) => !state)}
+        >
+          <img src="icons/fa-expand-more.svg" alt="expand" />
+          <span>Filter branches</span>
+        </div>
+        <ul className={`checkbox-dropdown-list ${dropdownOpen ? "open" : ""}`}>
+          {props.branches.map((branch) => (
+            <li key={branch.name}>
+              <label>
+                <input
+                  type="checkbox"
+                  value={branch.name}
+                  name="branch"
+                  checked={props.filteredBranches.includes(branch)}
+                  onChange={props.handleCheckboxChange}
+                />
+                {branch.name}
+              </label>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 };

@@ -11,7 +11,7 @@ export const CommitCard = (props: {
     "--branch-offset-width": `${(commit.branch.order ?? 1) * 30}px`,
   } as React.CSSProperties;
   return (
-    <div className={"commit-card"} style={overrideStyles}>
+    <div className="commit-card" style={overrideStyles}>
       <div className="commit-card__rect">
         <div className="content">
           <h3 className="title">{commit.title}</h3>
