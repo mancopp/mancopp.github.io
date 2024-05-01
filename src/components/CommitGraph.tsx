@@ -1,11 +1,11 @@
 import { CommitCard } from "./CommitCard";
-import "./CommitsGraph.scss";
+import "./CommitGraph.scss";
 
 import { commits } from "../data/commits";
 import { Branch, branches } from "../data/branches";
 import { useState } from "react";
 
-export const CommitsGraph = () => {
+export const CommitGraph = () => {
   const [selectedBranches, setSelectedBranches] = useState(
     branches.map((branch) => branch.name)
   );
@@ -56,7 +56,7 @@ export const CommitsGraph = () => {
         filteredBranches={filteredBranches}
         handleCheckboxChange={handleCheckboxChange}
       />
-      <div className="commits-graph">
+      <div className="commit-graph">
         <h2>Mancopp: Commit Graph</h2>
         {filteredCommits.map((commit, index) => (
           <CommitCard
@@ -100,7 +100,7 @@ const BranchLine = (props: { branch: Branch }) => {
   );
 };
 
-// TODO: Hide when leaving commits-graph
+// TODO: Hide when leaving commit-graph
 const Header = (props: {
   branches: Branch[];
   filteredBranches: Branch[];
@@ -109,7 +109,7 @@ const Header = (props: {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <div className="commits-graph-header">
+    <div className="commit-graph-header">
       <div className="filter-branches-dropodwn">
         <div
           className="btn-content"
