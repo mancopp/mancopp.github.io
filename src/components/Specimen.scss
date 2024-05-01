@@ -65,6 +65,11 @@
       }
     }
   }
+
+  .scroll-tip {
+    position: absolute;
+    bottom: 100px;
+  }
 }
 
 @keyframes growShrink {
